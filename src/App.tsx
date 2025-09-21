@@ -1,7 +1,14 @@
-import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
+// import ListGroup from "./components/ListGroup";
 
 function App() {
-  const items = [
+  return (
+    <div>
+      <Alert text="Hello World"></Alert>
+    </div>
+  );
+
+  /*   const items = [
     "An item",
     "A second item",
     "A third item",
@@ -21,7 +28,7 @@ function App() {
         onSelectItem={handleSelectItem}
       />
     </div>
-  );
+  ); */
 }
 
 export default App;
