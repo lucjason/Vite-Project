@@ -9,7 +9,11 @@ function App() {
 
   return (
     <div>
-      {alertVisible && <Alert>Thank you for clicking the button!</Alert>}
+      {alertVisible && (
+        <Alert onClose={() => setAlertVisible(false)}>
+          Thank you for clicking the button!
+        </Alert>
+      )}
       <Button color="secondary" onClick={() => setAlertVisible(true)}>
         Click me
       </Button>
