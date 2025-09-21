@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function ListGroup() {
   const items = [
     "An item",
@@ -9,16 +11,8 @@ function ListGroup() {
 
   const getMessage = () => items.length === 0 && <p>No items found</p>;
 
-  let selectedIndex = 0;
-
-  const handleClick = (
-    event: React.MouseEvent,
-    item: string,
-    index: number
-  ) => {
-    console.log(event, item);
-    selectedIndex = index;
-  };
+  // State hook
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
@@ -34,7 +28,7 @@ function ListGroup() {
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            onClick={(event) => handleClick(event, item, index)}
+            onClick={() => setSelectedIndex(index)}
             key={item}
           >
             {item}
