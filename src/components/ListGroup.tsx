@@ -9,6 +9,17 @@ function ListGroup() {
 
   const getMessage = () => items.length === 0 && <p>No items found</p>;
 
+  let selectedIndex = 0;
+
+  const handleClick = (
+    event: React.MouseEvent,
+    item: string,
+    index: number
+  ) => {
+    console.log(event, item);
+    selectedIndex = index;
+  };
+
   return (
     <>
       {" "}
@@ -16,10 +27,14 @@ function ListGroup() {
       <h1>My List</h1>
       {getMessage()}
       <ul className="list-group">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li
-            className="list-group-item"
-            onClick={() => console.log(item)}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            onClick={(event) => handleClick(event, item, index)}
             key={item}
           >
             {item}
